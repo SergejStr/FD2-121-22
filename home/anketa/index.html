@@ -1,12 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
+    <script>
+        let age;
+        let sex;
+        let pension;
+        let name = prompt('Ваше имя?');
+        let surname = prompt('Ваша фамилия?');
+        let patronymic = prompt('Ваше отчество?');
+
+        age = parseInt(prompt('Ваш возраст?'));
+        if (age > 150) {
+            for (var i = 0; ; i++) {
+                age = parseInt(prompt('Э, Ваш возраст?'));
+                if (age < 150) { break; }
+            }
+        }
+        
+        let ageday = age * 365;
+        let agefive = age + 5;
+
+        sex = confirm('Ваш пол мужской?');
+        if (sex = true) {
+            sex = 'мужской';
+        } else sex = 'женский';
+
+        alert('Ваше ФИО: ' + surname + ' ' + name + ' ' + patronymic + '\n' +
+            'Ваш возраст в годах: ' + age + '\n' + 'Ваш возраст в днях: ' + ageday
+            + '\n' + 'Через пять лет вам будет: ' + agefive + '\n' + 'Ваш пол: '+sex+ '\n' +
+            'Вы на пенсии: '+ '\n' +pension);
+    </script>
 </body>
+
 </html>
