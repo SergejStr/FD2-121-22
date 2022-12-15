@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .imgcars {
+        width: 90%;
+       
+    }
+
+    .wrap_item {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 20%;
+        
+        align-items: center;
+    }
+
+
+    #app {
+        display: flex;
+        justify-content: space-around;
+        
+        padding: 10px;
+    }
+</style>
+
+<body>
+    <button onclick="addCars()">Добавить машину</button><br>
+    <button onclick="sortUpCars()">Сортировать по возрастанию</button><br>
+    <button onclick="sortDownCars()">Сортировать по убыванию</button>
+    <div id="app"></div>
+    <script>
+        let cars = [
+            { id: '0', brand: 'Tesla', year: 2015, color: 'red', price: 20000, img: 'https://hips.hearstapps.com/hmg-prod/amv-prod-cad-assets/wp-content/uploads/2015/01/2015-Tesla-Model-S-P85D-101.jpg?crop=0.737xw:0.604xh;0.231xw,0.220xh&resize=1200:*' },
+            { id: '1', brand: 'Mercedes', year: 2016, color: 'silver', price: 25000, img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Mercedes-Benz_C_220_BlueTEC_AMG_Line_%28W_205%29_%E2%80%93_Frontansicht%2C_15._M%C3%A4rz_2014%2C_D%C3%BCsseldorf.jpg/800px-Mercedes-Benz_C_220_BlueTEC_AMG_Line_%28W_205%29_%E2%80%93_Frontansicht%2C_15._M%C3%A4rz_2014%2C_D%C3%BCsseldorf.jpg' },
+            { id: '2', brand: 'Audi', year: 2012, color: 'black', price: 16000, img: 'https://cdn.riastatic.com/photosnew/auto/photo/audi_a6__470383360fx.jpg' },
+            { id: '3', brand: 'BMW', year: 2022, color: 'yellow', price: 100000, img: 'https://www.avtovzglyad.ru/media/article/2022/06/27/2015-bmw-3-0-csl-hommage-3-0-csl-hommage-r.jpg.740x555_q85_box-339%2C0%2C1781%2C1080_crop_detail_upscale.jpg' },
+        ];
+        let cart = document.getElementById('app');
+        let addCar = '';
+
+        function addCars() {
+            for (let i = 0; i < cars.length; i++) {
+                addCar +=
+                    `<div class="wrap_item">
+                 <h2>Бренд: ${cars[i].brand}</h2>
+                 <img class="imgcars" src=${cars[i].img}>
+                 <p> Год: ${cars[i].year}</p>
+                 <p> Цвет: ${cars[i].color}</p>
+                 <p> Цвет: ${cars[i].price}</p>
+                 <button type="button" className="btn"> удалить</button>
+                 </div>
+                 `;
+            }
+            cart.innerHTML = addCar;
+        }
+        function sortUpCars() {
+            cars.sort((x, y) => x.price - y.price);
+            addCar = '';
+            for (let i = 0; i < cars.length; i++) {
+                addCar +=
+                    `<div class="wrap_item">
+                 <h2>Бренд: ${cars[i].brand}</h2>
+                 <img class="imgcars" src=${cars[i].img}>
+                 <p> Год: ${cars[i].year}</p>
+                 <p> Цвет: ${cars[i].color}</p>
+                 <p> Цена: ${cars[i].price}</p>
+                 <button type="button" className="btn"> удалить</button>
+                 </div>
+                 `;
+            }
+            cart.innerHTML = addCar;
+
+        }
+        function sortDownCars() {
+            cars.sort((x, y) => y.price - x.price);
+            addCar = '';
+            for (let i = 0; i < cars.length; i++) {
+                addCar +=
+                    `<div class="wrap_item">
+                 <h2>Бренд: ${cars[i].brand}</h2>
+                 <img class="imgcars" src=${cars[i].img}>
+                 <p> Год: ${cars[i].year}</p>
+                 <p> Цвет: ${cars[i].color}</p>
+                 <p> Цвет: ${cars[i].price}</p>
+                 <button type="button" className="btn"> удалить</button>
+                 </div>
+                 `;
+            }
+            cart.innerHTML = addCar;
+
+        }
+    </script>
+</body>
+
+</html>
