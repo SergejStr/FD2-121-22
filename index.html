@@ -7,23 +7,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    .task {
+        border: solid 1px black;
+        border-radius: 5px;
+        padding: 5px 30px;
+        display: flex;
+        justify-content: space-between;
+        font-size: 24px;
+        background-color: bisque;
+        margin: 10px;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: red;
+    }
+    .result::after{
+        content: '';
+
+    }
+</style>
 
 <body>
-    <h1>Hello</h1>
-    <a href="home/anketa/index.html">anketa</a>
-    <br>
-    <a href="lesson4/index.html">calculator</a>
-    <br>
-    <a href="home/treesum/treesum.html">TreeSum (не готов)</a>
-    <br>
-    <a href="home/A2+/index.html">A2+</a>
-    <br>
-    <a href="home/A3+/index.html">A3+</a>
-    <br>
-    <a href="home/vowels/index.html">Vowels</a>
-    <br>
-    <a href="market/index.html">Market</a>
-
+    <h1>Домашние задания</h1>
+    <div class="task">
+        <div><a href="home/anketa/index.html">Аnketa</a></div>
+        <div class="result">есть недочет</div>
+    </div>
+    <div class="task">
+        <div><a href="lesson4/index.html">Calculator</a></div>
+        <div></div>
+    </div><div class="task">
+        <div><a href="home/treesum/treesum.html">TreeSum</a></div>
+        <div>не проверено</div>
+    </div><div class="task">
+        <div><a href="home/A2+/index.html">A2+</a></div>
+        <div>проверено</div>
+    </div><div class="task">
+        <div><a href="home/A3+/index.html">A3+</a></div>
+        <div>проверено</div>
+    </div><div class="task">
+        <div><a href="home/vowels/index.html">Vowels</a></div>
+        <div>проверено</div>
+    </div><div class="task">
+        <div><a href="market/index.html">Market</a></div>
+        <div>не проверено</div>
+    </div>
+   
 
 
 </body>
