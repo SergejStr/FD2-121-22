@@ -10,7 +10,7 @@
 <style>
     .imgcars {
         width: 90%;
-       
+
     }
 
     .wrap_item {
@@ -18,7 +18,7 @@
         flex-direction: column;
         justify-content: space-around;
         width: 20%;
-        
+
         align-items: center;
     }
 
@@ -26,7 +26,7 @@
     #app {
         display: flex;
         justify-content: space-around;
-        
+
         padding: 10px;
     }
 </style>
@@ -36,18 +36,41 @@
     <button onclick="sortUpCars()">Сортировать по возрастанию</button><br>
     <button onclick="sortDownCars()">Сортировать по убыванию</button>
     <div id="app"></div>
+    <form name="car">
+        <label>Марка
+            <input id="brand" name="brand" />
+        </label>
+        <label>Цвет
+            <input id="color" name="color" />
+        </label>
+        <label>Цена
+            <input id="price" name="price" />
+        </label>
+
+    </form>
+
+
+
+
     <script>
-        let cars = [
+        /*let cars = [
             { id: '0', brand: 'Tesla', year: 2015, color: 'red', price: 20000, img: 'https://hips.hearstapps.com/hmg-prod/amv-prod-cad-assets/wp-content/uploads/2015/01/2015-Tesla-Model-S-P85D-101.jpg?crop=0.737xw:0.604xh;0.231xw,0.220xh&resize=1200:*' },
             { id: '1', brand: 'Mercedes', year: 2016, color: 'silver', price: 25000, img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Mercedes-Benz_C_220_BlueTEC_AMG_Line_%28W_205%29_%E2%80%93_Frontansicht%2C_15._M%C3%A4rz_2014%2C_D%C3%BCsseldorf.jpg/800px-Mercedes-Benz_C_220_BlueTEC_AMG_Line_%28W_205%29_%E2%80%93_Frontansicht%2C_15._M%C3%A4rz_2014%2C_D%C3%BCsseldorf.jpg' },
             { id: '2', brand: 'Audi', year: 2012, color: 'black', price: 16000, img: 'https://cdn.riastatic.com/photosnew/auto/photo/audi_a6__470383360fx.jpg' },
             { id: '3', brand: 'BMW', year: 2022, color: 'yellow', price: 100000, img: 'https://www.avtovzglyad.ru/media/article/2022/06/27/2015-bmw-3-0-csl-hommage-3-0-csl-hommage-r.jpg.740x555_q85_box-339%2C0%2C1781%2C1080_crop_detail_upscale.jpg' },
-        ];
+        ];*/
+
+        
+
+
+
         let cart = document.getElementById('app');
         let addCar = '';
 
         function addCars() {
-            for (let i = 0; i < cars.length; i++) {
+            let brand = document.forms.car.brand.value;
+            console.log(brand);
+            /*for (let i = 0; i < cars.length; i++) {
                 addCar +=
                     `<div class="wrap_item">
                  <h2>Бренд: ${cars[i].brand}</h2>
@@ -59,7 +82,7 @@
                  </div>
                  `;
             }
-            cart.innerHTML = addCar;
+            cart.innerHTML = addCar;*/
         }
         function sortUpCars() {
             cars.sort((x, y) => x.price - y.price);
