@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //const string = prompt('введите строку');
+        //let arr = ['а', 'о', 'у', 'ы', 'э', 'я', 'ё', 'ю', 'и', 'е']
+
+        let userStr = prompt('Введите строку').split('');
+        let vowels = ['у', 'е', 'ы', 'а', 'о', 'э', 'я', 'и', 'ю', 'ё'];
+
+        function userForEach(str) {
+            let res = 0;
+            str.forEach(value => {
+                if (vowels.includes(value)) {
+                    res++;
+                }
+            })
+            return res
+        }
+
+        function userFilter(str) {
+            str = str.filter(value => vowels.includes(value));
+            return str.length;
+        }
+
+        function userReduce(str) {
+            return str.reduce((res, value) => {
+                if (vowels.includes(value)) {
+                    res++;
+                }
+                return res;
+            }, 0);
+        }
+
+        alert(`
+    Количество гласных
+    forEach: ${userForEach(userStr)}
+    filter: ${userFilter(userStr)}
+    reduce: ${userReduce(userStr)}
+    `);
+
+
+
+
+
+    </script>
+</body>
+
+</html>

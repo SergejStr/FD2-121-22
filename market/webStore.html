@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cars</title>
+
+</head>
+<style>
+    #app{
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+    }
+    .imgcars{
+        width: 100px;
+        height: 100px;
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        margin-bottom: 30px;
+    }
+    button{
+        background-color: orangered;
+        border: 1px solid black;
+        border-radius: 3px;
+        padding: 5px;
+    }
+
+</style>
+<body>
+<form name="cart">
+    <label for="brand">добавить бренд</label>
+    <input id="brand" name="brand">
+    <label for="year">добавить год</label>
+    <input id="year" name="year">
+    <label for="color">добавить цвет</label>
+    <input id="color" name="color">
+    <label for="img">адрес картинки</label>
+    <input id="img" name="img">
+    <label for="price">цена</label>
+    <input id="price" name="price">
+</form>
+<button onclick="addCAR()">создать объявление</button>
+<button onclick="addCars()"> Добавить машины</button>
+<button onclick="sortDownCars()">Сортировать по уменьшению цены</button>
+<button onclick="sortUpCars()">Сортировать по увеличению цены</button>
+<div id="app"></div>
+<script>
+
+
+    let cars =[];
+    console.log(document.cart.img.value)
+
+    function addCAR (){
+
+        let carBrand = document.cart.brand.value;
+        let carYear = document.cart.year.value;
+        let carColor = document.cart.color.value;
+        let carImg = document.cart.img.value;
+        let carPrice = document.cart.price.value;
+
+        let obj ={
+            brand : carBrand,
+            year : carYear,
+            color: carColor,
+            imgcar : carImg,
+            price : carPrice,
+        };
+
+        cars.push(obj);
+        console.log(cars)
+    }
+
+
+
+
+
+
+    // let cars = [
+    //     {id: '0', brand: 'tesla', year:2015, color: 'red', img:'https://upload.wikimedia.org/wikipedia/commons/6/6d/Tesla_Model_S_%28Facelift_ab_04-2016%29.jpg' },
+    //     {id: '1', brand: 'lexus', year:2016, color: 'silver',img:'https://l1-cms-2.images.lexus-europe.com/lexusone/lexruruv11/icon_tcm-3173-2227482.png'},
+    //     {id: '2', brand: 'nissan', year:2012, color: 'black',img:'https://alizing.by/upload/iblock/484/4848b03ac8c4bab66ebc43d1a1d0a760.jpg'},
+    //     {id: '3', brand: 'BMW', year:2020, color: 'blue',img:'https://www.bmw.by/content/dam/bmw/common/all-models/3-series/sedan/2022/navigation/bmw-3-series-sedan-lci-modelfinder.png'},
+    // ];
+    let cart = document.getElementById('app');
+    let addCar=''
+
+    function addCars(){
+        for(let i = 0; i < cars.length; i++){
+             addCar +=
+                `<div>
+                 <h2>Бренд: ${cars[i].brand}</h2>
+                 <img class="imgcars" src=${cars[i].imgcar}>
+                 <p> Год: ${cars[i].year}</p>
+                 <p> Цвет: ${cars[i].color}</p>
+                 <p> Цена: ${cars[i].price}</p>
+                 <button type="button" className="btn"> удалить</button>
+                 </div>
+                 `;
+        }
+        cart.innerHTML = addCar;
+    }
+    function sortUpCars() {
+        cars.sort((x, y) => x.price - y.price);
+        addCar = '';
+        for (let i = 0; i < cars.length; i++) {
+            addCar +=
+                `<div class="wrap_item">
+                 <h2>Бренд: ${cars[i].brand}</h2>
+                 <img class="imgcars" src=${cars[i].imgcar}>
+                 <p> Год: ${cars[i].year}</p>
+                 <p> Цвет: ${cars[i].color}</p>
+                 <p> Цена: ${cars[i].price}</p>
+                 </div>
+                 `;
+        }
+        cart.innerHTML = addCar;
+
+    }
+    function sortDownCars() {
+        cars.sort((x, y) => y.price - x.price);
+        addCar = '';
+        for (let i = 0; i < cars.length; i++) {
+            addCar +=
+                `<div class="wrap_item">
+                 <h2>Бренд: ${cars[i].brand}</h2>
+                 <img class="imgcars" src=${cars[i].imgcar}>
+                 <p> Год: ${cars[i].year}</p>
+                 <p> Цвет: ${cars[i].color}</p>
+                 <p> Цена: ${cars[i].price}</p>
+                 </div>
+                 `;
+        }
+        cart.innerHTML = addCar;
+
+    }
+
+
+
+
+
+
+</script>
+</body>
+</html>

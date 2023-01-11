@@ -25,7 +25,6 @@
         background: red;
 
     }
-    
 </style>
 
 <body>
@@ -42,14 +41,15 @@
             switch (e.keyCode) {
                 case 87:
                     cub.style.top = step + 'px';
-                    step--;; break;
-                case 68: cub.style.left = step + 'px';
+                    step--; break;
+                case 68:
+                    cub.style.left = step + 'px';
                     step++;
                     break;
                 case 83: cub.style.top = step + 'px';
                     step++;
                     break;
-                case 65: ;
+                case 65:
                     cub.style.left = step + 'px';
                     step--;
                     break;
